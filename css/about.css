@@ -1,0 +1,125 @@
+/*
+Template Name: Stark Biz
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+
+/*********************about****************/
+.nav-tabs{
+border-color:var(--border_light);
+ }
+.nav-tabs .nav-link:hover{
+border:none!important;
+ }
+.nav-tabs .nav-link{
+border:none!important;
+padding: 10px 15px!important;
+color:var(--bs-dark);
+margin-right:1px;
+ }
+.nav-tabs .nav-link:hover{
+background:var(--green)!important;
+border-radius:0; 
+color:var(--bs-white)!important;
+ }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+background:var(--green)!important;
+border-radius:0; 
+color:var(--bs-white)!important;
+ }
+.tab-content{
+border-left:1px solid var(--border_light);
+border-right:1px solid var(--border_light);
+border-bottom:1px solid var(--border_light);
+ }
+ 
+.faq_1_left_inner_right ul{
+   border-radius:0px 100px 0px 0px;
+   border-right: 10px solid var(--green);
+ }
+.team_icon {
+  width:70px;
+  height:70px;
+  line-height:70px; 
+ }
+.faq_1_left_inner_right ul {
+   bottom: -30%;
+    left: -45%;
+}
+.image_1{
+  border-radius:100px 0px 0px 0px;
+ }
+.image_2{
+  border-radius:0px 100px 0px 0px;
+ }
+#team_h{
+   padding-bottom:100px;
+ }
+/*********************about_end****************/
+
+
+@media screen and (max-width : 767px){
+.about_pg1r{
+  margin-top:20px;
+ }
+.achieve_1 {
+  padding:20px 15px!important;
+ }
+.achieve_1r{
+  margin-top:20px;
+ }
+.achieve_1ri{
+  text-align:center;
+ }
+.achieve_1ri1{
+   margin-top:8px;
+   margin-bottom:8px;
+ }
+.faq_1_left_inner_right ul {
+    position:static!important;
+	margin-top:20px;
+}
+.faq_1_right{
+   margin-top:20px;
+ }
+.about_pg1r br{
+  display:none;
+ }
+ }
+
+
+@media (min-width:576px) and (max-width:767px) {
+.achieve_1ri{
+  text-align:left;
+ }
+ }
+ 
+@media (min-width:768px) and (max-width:991px) {
+.about_pg1r br{
+  display:none;
+ }
+.achieve_1 {
+  padding:30px 20px!important;
+ }
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+
+
+ }
+
+@media (min-width:1201px) and (max-width:1310px) {
+
+ }
+@media screen and (min-width : 1400px){
+.faq_1_left_inner_right ul {
+    bottom: -20%;
+}
+#faq{
+   padding-bottom:110px!important;
+  }
+ }
+
+

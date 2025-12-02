@@ -1,0 +1,102 @@
+/*
+Template Name: Stark Biz
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+
+/*********************blog****************/
+.tags a {
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 5px 8px 0px;
+    transition: 0.3s;
+    background: var(--bg_light);
+}
+.tags a:hover {
+    background: var(--green);
+	color: var(--bs-white);
+}
+.blockquote {
+    border-left: 5px solid var(--green);
+}
+
+.contact_1lil span{
+font-size:60px;
+line-height:0; 
+ }
+.contact_1li{
+padding:20px 10px;
+ }
+.contact_1li:hover{
+background:var(--bg_light);
+ }
+
+/*********************blog_end****************/
+
+
+@media screen and (max-width : 767px){
+.blog_1_right {
+  margin-top:20px;
+ }
+.blog_dt1_inner_right {
+  text-align:left!important;
+  margin-top:15px;
+ }
+.blog_dt1_inner1_right {
+   text-align:left!important;
+  margin-top:15px;
+ }
+.contact_1lir{
+    margin-top:15px;
+ }
+.contact_1r {
+   margin-top:20px;
+ }
+.social_icon1 a{
+  margin-top:3px;
+  margin-bottom:3px;
+}
+ }
+
+
+@media (min-width:576px) and (max-width:767px) {
+.blog_dt1_inner_right{
+  margin-top:0; 
+  text-align:right!important;
+ }
+.blog_dt1_inner1_right {
+   text-align:right!important;
+  margin-top:0;
+ }
+.contact_1lir{
+    margin-top:0;
+ }
+ }
+ 
+@media (min-width:768px) and (max-width:991px) {
+.blog_1_right1 ul img{
+  width:70px;
+ }
+.social_icon1 a{
+  margin-top:3px;
+  margin-bottom:3px;
+}
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+.contact_1lil span {
+  font-size: 45px;
+}
+ }
+
+@media (min-width:1201px) and (max-width:1310px) {
+
+ }
+@media screen and (min-width : 1400px){
+
+
+ }
+
+
