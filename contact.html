@@ -15,6 +15,7 @@
 
 </head>
 <body>
+	<div id="header-placeholder"></div>
 
 <section id="header">
      <nav class="navbar navbar-expand-lg navbar-light w-100">
@@ -217,99 +218,31 @@
  </div>
 </section>
 
-
-<section id="footer" class="pt-5 pb-4 bg_back1">
- <div class="container-xl">
-   <div class="row footer_1">
-    <div class="col-md-5">
-	 <div class="footer_1_left">
-	  <b class="fs-3 d-block text-white mb-4">We are professional organization
-specialized expertise advice.</b>
-<div class="input-group  border_dark">
-				<input type="text" class="form-control bg-transparent border-0 text-white" placeholder="Your Email Address">
-				<span class="input-group-btn">
-					<button class="btn btn-primary bg_green  py-3 px-4 border-0" type="button">
-						<i class="bi bi-send"></i> </button>
-				</span>
-		</div>
-		<ul class="justify-content-between mb-0 mt-4 d-flex">
-		 <li>
-		  <b class="d-block text-white fs-3">Contact Us</b>
-		  <span class="d-block mt-3"><a class="text-white-50 link" href="#">(123) 456-0123</a></span>
-		  <span class="d-block mt-3"><a class="text-white-50 link" href="#">(91) 123-4567</a></span>
-		 </li>
-		 <li>
-		  <b class="d-block text-white fs-3">Address</b>
-		  <span class="d-block mt-3 text-white-50">1217 W. Black St. Wtica, <br>
-Ipsum Porta 52891</span>
-		 </li>
-		</ul>
-	 </div>
-	</div>
-	<div class="col-md-3">
-	 <div class="footer_1_left ps-5">
-	   <b class="fs-3 d-block text-white mb-4">Useful Links</b>
-	   <div class="row footer_1ism">
-		 <span class="col-md-12 col-6  d-inline-block"><a class="text-white-50 link" href="#"> About Company</a></span>
-	 <span class="mt-3 col-md-12 col-6  d-inline-block"><a class="text-white-50 link" href="#"> Meet the Team</a></span>
-	 <span class="mt-3 col-md-12 col-6  d-inline-block"><a class="text-white-50 link" href="#"> Your Account</a></span>
-	 <span class="mt-3 col-md-12 col-6  d-inline-block"><a class="text-white-50 link" href="#"> News & Media</a></span>
-	 <span class="mt-3 col-md-12 col-6  d-inline-block"><a class="text-white-50 link" href="#"> Our Projects</a></span>
-	 <span class="mt-3 col-md-12 col-6  d-inline-block"><a class="text-white-50 link" href="#"> Contact Us</a></span>
-	    </div>
-	 </div>
-	</div>
-	<div class="col-md-4">
-	 <div class="footer_1_left">
-	   <b class="fs-3 d-block text-white mb-4">Recent News</b>
-	   <ul class="mb-0 ps-2">
-		     <li class="d-flex border-bottom  pb-3 mb-3">
-			   <span><a href="#"><img width="90" alt="abc" class="rounded-3" src="image/7.jpg"></a></span>
-			   <span class="flex-column ms-3">
-			      <span class="font_14 d-block text-white"><i class="bi-clock me-1 col_green"></i> Jan 24, 2024</span>
-			      <b class="d-block mt-1"><a class="text-white-50 link" href="#">Top crypto exchange influencers</a></b>
-			   </span>
-			 </li>
-			 <li class="d-flex border-bottom  pb-3 mb-3">
-			   <span><a href="#"><img width="90" alt="abc" class="rounded-3" src="image/8.jpg"></a></span>
-			   <span class="flex-column ms-3">
-			      <span class="font_14 d-block text-white"><i class="bi-clock me-1 col_green"></i> Feb 26, 2024</span>
-			      <b class="d-block mt-1"><a class="text-white-50 link" href="#">Necessity may give us best virtual court</a></b>
-			   </span>
-			 </li>
-<li class="d-flex">
-			   <span><a href="#"><img width="90" alt="abc" class="rounded-3" src="image/9.jpg"></a></span>
-			   <span class="flex-column ms-3">
-			      <span class="font_14 d-block text-white"><i class="bi-clock me-1 col_green"></i> Oct 28, 2024</span>
-			      <b class="d-block mt-1"><a class="text-white-50 link" href="#">You should know about business plan</a></b>
-			   </span>
-			 </li>
-		   </ul>
-	 </div>
-	</div>
-   </div>
-   <div class="row footer_2 border-top mt-4 pt-4 mx-0">
-    <div class="col-md-8">
-	  <div class="footer_2_left pt-1">
-	    <p class="mb-0 text-white-50">© 2023 Your Website Name. All Rights Reserved | Design by <a class="col_green fw-bold" href="http://www.templateonweb.com">TemplateOnWeb</a></p>
-	  </div>
-	</div>
-	<div class="col-md-4">
-	  <div class="footer_2_right text-end">
-	    <ul class="mb-0 social_icon1 font_14">
-			   <li class="d-inline-block"><a href="#"><i class="bi bi-facebook"></i></a></li>
-			   <li class="d-inline-block ms-2"><a href="#"><i class="bi bi-twitter"></i></a></li>
-			   <li class="d-inline-block ms-2"><a href="#"><i class="bi bi-linkedin"></i></a></li>
-			  <li class="d-inline-block ms-2"><a href="#"><i class="bi  bi-instagram"></i></a></li>
-			</ul>
-	  </div>
-	</div>
-   </div>
- </div>
-</section>
-
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/theme.min.js"></script>
+<script>
+		function includeHTML() {
+			// Ambil file header.html dan masukkan ke placeholder
+			fetch("header.html")
+				.then(response => response.text())
+				.then(data => {
+					document.getElementById("header-placeholder").innerHTML = data;
+				})
+				.catch(error => console.error('Gagal memuat header:', error));
 
+			// Ambil file footer.html dan masukkan ke placeholder
+			fetch("footer.html")
+				.then(response => response.text())
+				.then(data => {
+					document.getElementById("footer-placeholder").innerHTML = data;
+				})
+				.catch(error => console.error('Gagal memuat footer:', error));
+		}
+
+		// Panggil fungsi setelah semua elemen DOM dimuat
+		document.addEventListener("DOMContentLoaded", includeHTML);
+	</script>
+	<div id="footer-placeholder"></div>
+	
 </body>
 </html>
