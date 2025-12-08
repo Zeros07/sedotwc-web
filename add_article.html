@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tambah Artikel Baru - NJR MITRA SANITASI UTAMA</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+
+    <style>
+        #article-form-container {
+            background-color: var(--bs-white); /* Background Putih */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        /* Menyesuaikan textarea agar lebih besar */
+        .form-control.form_text {
+            min-height: 250px; 
+            resize: vertical;
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password harus sama persis dengan yang ada di blog.html
+            const correctPassword = "adminnjr";
+            
+            // Tampilkan prompt password
+            const enteredPassword = prompt("Akses Halaman Admin: Masukkan password.");
+
+            if (enteredPassword !== correctPassword) {
+                // Jika password salah atau user menekan Cancel, alihkan kembali
+                alert("Password salah atau akses dibatalkan. Anda akan dikembalikan ke halaman Blog.");
+                window.location.href = "blog.html";
+            }
+            // Jika password benar, skrip akan berhenti di sini dan halaman akan dimuat normal.
+        });
+    </script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <section id="center" class="center_o bg_light pt-3 pb-3">
+        <div class="container-xl">
+            <div class="row center_o1">
+                <div class="col-md-12">
+                    <h6 class="mb-0 col_green"><a href="index.html">Home</a> <span class="me-2 ms-2"><i
+                                class="bi-chevron-right align-middle text-muted"></i></span> <a href="blog.html">Blogs</a> <span class="me-2 ms-2"><i
+                                class="bi-chevron-right align-middle text-muted"></i></span> Tambah Artikel</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="add-article" class="pt-5 pb-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="font_48 mb-4">Buat Artikel Baru</h2>
+                    <hr class="line">
+
+                    <div id="article-form-container" class="shadow">
+                        <form id="articleForm" method="POST" action="process_article.php" enctype="multipart/form-data"> 
+                            
+                            <div class="mb-4">
+                                <label for="article-title" class="form-label fs-5 fw-bold">Judul Artikel</label>
+                                <input type="text" class="form-control p-3" id="article-title" name="title" required placeholder="Contoh: 5 Tips Perawatan WC Anti Mampet">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="article-image-file" class="form-label fs-5 fw-bold">Pilih File Gambar Utama</label>
+                                <input type="file" class="form-control p-3" id="article-image-file" name="article_image" accept="image/*" required>
+                                
+                                <div class="form-text">Pilih file gambar dari komputer Anda.</div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="article-category" class="form-label fs-5 fw-bold">Kategori / Tag</label>
+                                <input type="text" class="form-control p-3" id="article-category" name="category" placeholder="Contoh: Sanitasi, Tips, Bisnis (Pisahkan dengan koma)">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="article-content" class="form-label fs-5 fw-bold">Isi Konten Artikel</label>
+                                <textarea class="form-control form_text p-3" id="article-content" name="content" rows="15" required placeholder="Tulis isi artikel di sini..."></textarea>
+                            </div>
+                            
+                            <div class="text-end mt-5">
+                                <button type="submit" class="btn button py-3 px-5 border-0 fw-bold">
+                                    <i class="bi bi-save me-1"></i> Simpan & Terbitkan Artikel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/theme.min.js"></script>
+    <script>
+        // [FIX 2] SKRIP INCLUDE HTML (Pindahkan ke bagian bawah body, di luar DOMContentLoaded)
+        // Note: Skrip includeHTML akan berjalan setelah pengecekan password selesai
+        function includeHTML() {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-placeholder").innerHTML = data;
+                })
+                .catch(error => console.error('Gagal memuat header:', error));
+
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-placeholder").innerHTML = data;
+                })
+                .catch(error => console.error('Gagal memuat footer:', error));
+        }
+
+        // Jalankan includeHTML setelah semua DOM dimuat
+        document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+</body>
+
+</html>
