@@ -14,44 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
 
-    <style>
-        /* Target container luar (row) dan aktifkan Flexbox Stretch */
-        .serv_ho1 {
-            display: flex;
-            flex-wrap: wrap;
-            /* Tambahan: pastikan semua kolom memiliki tinggi yang sama di row */
-            align-items: stretch; 
-        }
-
-        /* Target kolom (card container) */
-        .serv_ho1 > .col {
-            display: flex;
-            /* Memastikan kolom mengisi ruang vertikal penuh */
-            align-items: stretch; 
-        }
-
-        /* Target card utama (yang memiliki shadow dan background putih) */
-        .serv_ho1_left {
-            display: flex;
-            flex-direction: column; /* Konten di dalam card disusun vertikal */
-            height: 100%; /* Memastikan card mengambil tinggi penuh kolom */
-        }
-        
-        /* [FIX 2] Bagian konten/deskripsi yang berisi teks */
-        .serv_ho1_left2 {
-            flex-grow: 1; /* Memungkinkan bagian ini untuk mengisi sisa ruang di dalam card */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Untuk mendorong Selengkapnya ke bawah */
-        }
-
-        /* [FIX 3] Mengatur tinggi minimal deskripsi (p) agar rata */
-        .serv_ho1_left2 p {
-            min-height: 54px; /* Sesuaikan angka ini (misal: 3 baris teks) */
-        }
-
-    </style>
-</head>
+    </head>
 <body>
     <div id="header-placeholder"></div>
 
@@ -59,25 +22,21 @@
  <div class="container-xl">
   <div class="row center_o1">
    <div class="col-md-12">
-      <!-- TOMBOL DOWNLOAD PDF DITAMBAHKAN DI SINI -->
-     <div class="d-flex justify-content-between align-items-center">
-    <h6 class="mb-0 col_green">
-        <a href="#">Home</a>
-        <span class="me-2 ms-2">
-            <i class="bi-chevron-right align-middle text-muted"></i>
-        </span>
-        Services
-    </h6>
-
-    <!-- TOMBOL DI KANAN -->
-    <a href="pdf/daftar_layanan_njr.pdf" download 
-       class="btn btn-success px-4 py-2 rounded-pill d-inline-flex align-items-center">
-        <i class="bi bi-download me-2"></i>
-        Download PDF
-    </a>
-</div>
-
-      <!-- SELESAI TOMBOL -->
+    <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0 col_green me-auto">
+            <a href="#">Home</a>
+            <span class="me-2 ms-2">
+                <i class="bi-chevron-right align-middle text-muted"></i>
+            </span>
+            Services
+        </h6>
+        <a href="pdf/daftar_layanan_njr.pdf" download 
+           class="btn btn-success px-4 py-2 rounded-pill d-inline-flex align-items-center">
+            <i class="bi bi-download me-2"></i>
+            <span class="d-none d-sm-inline">Download PDF</span>
+            <span class="d-sm-none">PDF</span>
+        </a>
+    </div>
    </div>
   </div>
  </div>
@@ -85,8 +44,8 @@
 
 <section id="serv_ho" class="pt-3 pb-5 serv_pg">
     <div class="container-xl">
-     <div class="row serv_ho1"> 
-        <div class="col">
+     <div class="row row-cols-1 serv_ho1"> 
+        <div class="col mb-4">
             <div class="serv_ho1_left">
               <div class="serv_ho1_left1 position-relative">
                 <a href="service_detail.html"><img src="image/wc6.png" class="img-fluid" alt="abc"></a>
@@ -95,10 +54,12 @@
                  <span class="d-inline-block bg_green text-white rounded_10 py-1 px-3">sedot wc</span>
                  <h4 class="mt-3"><a href="service_detail.html">Layanan Sedot WC Profesional</a></h4>
                  <p class="mt-3">Pengurasan dan pembersihan septic tank secara menyeluruh dengan prosedur yang aman, cepat, dan menjaga kebersihan lingkungan sekitar.</p>
+                 <h5 class="mb-0"><a href="service_detail.html">Selengkapnya <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                </div>
             </div>
          </div>
-         <div class="col">
+         
+         <div class="col mb-4">
             <div class="serv_ho1_left">
               <div class="serv_ho1_left1 position-relative">
                 <a href="service_detail.html"><img src="image/wc7.png" class="img-fluid" alt="abc"></a>
@@ -107,10 +68,12 @@
                  <span class="d-inline-block bg_green text-white rounded_10 py-1 px-3">Perbaikan saluran</span>
                  <h4 class="mt-3"><a href="service_detail.html">Perbaikan Saluran Tersumbat</a></h4>
                  <p class="mt-3">Penanganan saluran mampet, pipa tersumbat, dan drainase bermasalah dengan peralatan teknis serta tim berpengalaman untuk hasil yang optimal.</p>
+                 <h5 class="mb-0"><a href="service_detail.html">Selengkapnya<i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                </div>
             </div>
          </div>
-         <div class="col">
+         
+         <div class="col mb-4">
             <div class="serv_ho1_left">
               <div class="serv_ho1_left1 position-relative">
                 <a href="service_detail.html"><img src="image/wc8.png" class="img-fluid" alt="abc"></a>
@@ -119,12 +82,14 @@
                  <span class="d-inline-block bg_green text-white rounded_10 py-1 px-3">Renovasi</span>
                  <h4 class="mt-3"><a href="service_detail.html">Renovasi & Perbaikan WC</a></h4>
                  <p class="mt-3">Jasa renovasi dan penataan ulang WC agar lebih nyaman, higienis, dan fungsional, disesuaikan dengan kebutuhan hunian maupun tempat usaha Anda.</p>
+                 <h5 class="mb-0"><a href="service_detail.html">Selengkapnya <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                </div>
             </div>
          </div>
       </div>
-      <div class="row serv_ho1">
-         <div class="col">
+      
+      <div class="row row-cols-1 serv_ho1">
+         <div class="col mb-4">
             <div class="serv_ho1_left">
               <div class="serv_ho1_left1 position-relative">
                 <a href="service_detail.html"><img src="image/wc9.png" class="img-fluid" alt="abc"></a>
@@ -133,10 +98,11 @@
                  <span class="d-inline-block bg_green text-white rounded_10 py-1 px-3">memasang</span>
                  <h4 class="mt-3"><a href="service_detail.html">Pasang Gorong-Gorong</a></h4>
                  <p class="mt-3">Layanan pemasangan gorong-gorong untuk sistem drainase yang lebih optimal, aman, dan tahan lama. Dikerjakan oleh tenaga profesional dengan standar konstruksi yang tepat dan material berkualitas.</p>
+                 <h5 class="mb-0"><a href="service_detail.html">Selengkapnya <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                </div>
             </div>
          </div>
-         <div class="col">
+         <div class="col mb-4">
             <div class="serv_ho1_left">
               <div class="serv_ho1_left1 position-relative">
                 <a href="service_detail.html"><img src="image/wc10.png" class="img-fluid" alt="abc"></a>
@@ -145,10 +111,11 @@
                  <span class="d-inline-block bg_green text-white rounded_10 py-1 px-3">Sedot lemak</span>
                  <h4 class="mt-3"><a href="service_detail.html">sedot Lemak Rumah Makan/Cafe</a></h4>
                  <p class="mt-3">Layanan sedot lemak khusus untuk restoran, rumah makan, dan cafe, guna mencegah sumbatan akibat penumpukan minyak dan lemak. Proses cepat, higienis, dan sesuai standar kebersihan lingkungan.</p>
+                 <h5 class="mb-0"><a href="service_detail.html">Selengkapnya <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                </div>
             </div>
          </div>
-         <div class="col">
+         <div class="col mb-4">
             <div class="serv_ho1_left">
               <div class="serv_ho1_left1 position-relative">
                 <a href="service_detail.html"><img src="image/wc11.png" class="img-fluid" alt="abc"></a>
@@ -157,6 +124,7 @@
                  <span class="d-inline-block bg_green text-white rounded_10 py-1 px-3">Sedot Limbah</span>
                  <h4 class="mt-3"><a href="service_detail.html">Sedot Limbah Perusahaan</a></h4>
                  <p class="mt-3">Penanganan limbah industri dan perkantoran dengan armada khusus serta tenaga ahli berpengalaman. Menjaga operasional perusahaan tetap lancar melalui pengelolaan limbah yang aman dan terkontrol.</p>
+                 <h5 class="mb-0"><a href="service_detail.html">Selengkapnya <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                </div>
             </div>
          </div>
@@ -191,10 +159,10 @@
     <div id="footer-placeholder"></div>
 
        <a href="https://wa.me/6285771071415?text=Halo%20Admin%20NJR,%20saya%20ingin%20bertanya%20tentang%20layanan%20sedot%20WC."
-   class="wa-float"
-   target="_blank"
-   aria-label="Chat WhatsApp NJR">
-    <i class="bi-whatsapp"></i>
+    class="wa-float"
+    target="_blank"
+    aria-label="Chat WhatsApp NJR">
+     <i class="bi-whatsapp"></i>
 </a>
 
 </body>
