@@ -25,6 +25,23 @@
                 font-size: 0.8rem !important; 
             }
         }
+        /* [IMPROVE] Efek hover pada Blog Card Utama */
+        .blog_h1_left {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .blog_h1_left:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15)!important;
+        }
+        .blog_h1_left1 img {
+            transition: transform 0.5s ease-in-out;
+            /* Memastikan gambar mengisi ruang di dalam container (untuk efek zoom) */
+            object-fit: cover;
+        }
+        .blog_h1_left:hover .blog_h1_left1 img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -56,9 +73,12 @@
         <div class="row blog_1">
             <div class="col-md-8">
                 <div class="blog_1_left">
+                    
                     <div class="blog_h1_left">
-                        <div class="blog_h1_left1 position-relative">
-                            <a href="blog_detail.html"><img src="image/3.jpg" class="img-fluid" alt="abc"></a>
+                        <div class="blog_h1_left1 position-relative" style="overflow: hidden;">
+                            <a href="blog_detail.html">
+                                <img src="image/3.jpg" class="img-fluid" alt="abc">
+                            </a>
                             <h6 class="mb-0 bg_green text-white py-3 px-4 font_15 position-absolute bottom-0">
                                 <span><i class="bi-person-fill me-1 align-middle"></i> By Admin</span>
                                 <span class="ms-3"><i class="bi-clock me-1 align-middle"></i> August 14, 2024</span>
@@ -82,7 +102,6 @@
                             <h5 class="mb-0 mt-4"><a href="blog_detail.html">Read More <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                         </div>
                     </div>
-
                     <div class="paging mt-5">
                         <ul class="mb-0 paginate text-center">
                             <li class="d-inline-block mt-1 mb-1"><a class="border d-block" href="blog_detail.html"><i class="bi bi-chevron-left"></i> </a></li>
@@ -103,7 +122,6 @@
         <div class="blog_1_right1">
             <h4 class="line_text mb-4">RECENT POST</h4>
             <ul class="mb-0">
-
                 <li class="d-flex border-bottom pb-3 mb-3">
                     <span>
                         <a href="blog_detail.html">
