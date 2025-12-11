@@ -1,3 +1,4 @@
+<?php include 'koneksi.php'; ?>
 <section id="footer" class="pt-5 pb-4 bg_back1">
     <div class="container-xl">
         <div class="row footer_1">
@@ -10,7 +11,8 @@
                     </b>
 
                     <div class="input-group border_dark">
-                        <input type="text" class="form-control bg-transparent border-0 text-white" placeholder="Masukkan Email Anda">
+                        <input type="text" class="form-control bg-transparent border-0 text-white"
+                            placeholder="Masukkan Email Anda">
                         <span class="input-group-btn">
                             <button class="btn btn-primary bg_green py-3 px-4 border-0" type="button">
                                 <i class="bi bi-send"></i>
@@ -43,56 +45,70 @@
                     <b class="fs-3 d-block text-white mb-4">Berita Terbaru</b>
 
                     <ul class="mb-0 ps-2">
+                        <?php
+            // 1. Query ambil 3 artikel terbaru
+            $query_footer = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 3";
+            $result_footer = mysqli_query($conn, $query_footer);
+            
+            // Hitung jumlah data biar kita bisa atur garis bawah (border)
+            $total_data = mysqli_num_rows($result_footer);
+            $no = 0;
 
-                        <li class="d-flex border-bottom pb-3 mb-3">
-                            <span><a href="#"><img width="90" class="rounded-3" src="image/7.jpg"></a></span>
+            if ($total_data > 0) {
+                while ($row = mysqli_fetch_assoc($result_footer)) {
+                    $no++; // Penanda urutan (1, 2, 3)
+
+                    // Setup Variabel
+                    $id_f = $row['id'];
+                    $judul_f = htmlspecialchars($row['title']);
+                    $tgl_f = date("M d, Y", strtotime($row['created_at']));
+                    $img_f = !empty($row['image']) ? "image/" . $row['image'] : "image/default.jpg";
+
+                    // Logika CSS: Kalau bukan item terakhir, kasih garis bawah (border-bottom)
+                    // Kalau item terakhir, kosongkan class border-nya
+                    $class_border = ($no < $total_data) ? "border-bottom pb-3 mb-3" : "";
+            ?>
+
+                        <li class="d-flex <?php echo $class_border; ?>">
+                            <span>
+                                <a href="blog_detail.php?id=<?php echo $id_f; ?>">
+                                    <img width="90" class="rounded-3" src="<?php echo $img_f; ?>" alt="img"
+                                        style="height: 60px; object-fit: cover;">
+                                </a>
+                            </span>
                             <span class="flex-column ms-3">
                                 <span class="font_14 text-white d-block">
-                                    <i class="bi-clock me-1 col_green"></i> Jan 24, 2024
+                                    <i class="bi-clock me-1 col_green"></i>
+                                    <?php echo $tgl_f; ?>
                                 </span>
-                                <b class="d-block mt-1 text-white-50">Tips menjaga septic tank tetap aman & tidak cepat penuh</b>
+                                <b class="d-block mt-1 text-white-50">
+                                    <a href="blog_detail.php?id=<?php echo $id_f; ?>"
+                                        class="text-white-50 text-decoration-none">
+                                        <?php echo $judul_f; ?>
+                                    </a>
+                                </b>
                             </span>
                         </li>
-
-                        <li class="d-flex border-bottom pb-3 mb-3">
-                            <span><a href="#"><img width="90" class="rounded-3" src="image/8.jpg"></a></span>
-                            <span class="flex-column ms-3">
-                                <span class="font_14 text-white d-block">
-                                    <i class="bi-clock me-1 col_green"></i> Feb 26, 2024
-                                </span>
-                                <b class="d-block mt-1 text-white-50">Penyebab saluran mampet & cara pencegahannya</b>
-                            </span>
-                        </li>
-
-                        <li class="d-flex">
-                            <span><a href="#"><img width="90" class="rounded-3" src="image/9.jpg"></a></span>
-                            <span class="flex-column ms-3">
-                                <span class="font_14 text-white d-block">
-                                    <i class="bi-clock me-1 col_green"></i> Oct 28, 2024
-                                </span>
-                                <b class="d-block mt-1 text-white-50">Cara merawat WC agar tidak mudah rusak</b>
-                            </span>
-                        </li>
-
+                        <?php 
+                } // Tutup While
+            } else {
+                echo "<li class='text-white-50'>Belum ada berita.</li>";
+            }
+            ?>
                     </ul>
-
                 </div>
             </div>
 
 
-              <!-- TENGAH: GOOGLE MAPS (KOLom KECIL) -->
+            <!-- TENGAH: GOOGLE MAPS (KOLom KECIL) -->
             <div class="col-md-3">
                 <div class="footer_1_left ps-md-4">
                     <b class="fs-3 d-block text-white mb-4">Lokasi Kami</b>
 
-                    <iframe 
+                    <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31722.960885785167!2d106.65340557431641!3d-6.346095700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sPamulang%20University%20Campus%202%20(UNPAM%20Viktor)!5e0!3m2!1sen!2sid!4v1765208938046!5m2!1sen!2sid"
-                        width="100%" 
-                        height="180" 
-                        style="border-radius:10px; border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        width="100%" height="180" style="border-radius:10px; border:0;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
