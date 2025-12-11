@@ -1,426 +1,469 @@
-/*
-Template Name: Stark Biz
-File: Layout CSS
-Author: TemplatesOnWeb
-Author URI: https://www.templateonweb.com/
-Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
-*/
+/* FONT DASAR */
+body {
+  font-family: "Urbanist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #0f172a;
+}
 
+/* SECTION GENERIC */
+.section {
+  padding: 72px 0;
+  background: #f9fafb;
+}
+
+.section-dark {
+  background: #020617;
+}
+
+.section-eyebrow {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #22c55e;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.section-text {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* ================== HERO ================== */
+
+.hero-section {
+  position: relative;
+  background-image: url("../image/wc1.png");
+  background-size: cover;
+  background-position: center;
+  color: #f9fafb;
+}
+
+.hero-overlay {
+  background: linear-gradient(120deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.65));
+  padding: 90px 0 96px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.3fr);
+  gap: 32px;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.hero-eyebrow {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #a5b4fc;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 44px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.hero-highlight {
+  color: #22c55e;
+}
+
+.hero-text {
+  font-size: 15px;
+  color: #e5e7eb;
+}
+
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-hero-primary:hover {
+  background: #16a34a;
+  color: #0f172a;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+  color: #cbd5f5;
+}
+
+.hero-badges span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+}
+
+/* HERO CARD KANAN */
+
+.hero-card {
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 18px;
+  padding: 20px 22px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+  align-self: center;
+}
+
+.hero-card-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hero-card-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.hero-card-label {
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.hero-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.hero-card-list li + li {
+  margin-top: 4px;
+}
+
+/* ================== ABOUT ================== */
+
+.about-section {
+  background: #ffffff;
+}
+
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.about-main-img,
+.about-secondary-img {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.about-main-img img,
+.about-secondary-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+}
+
+.about-content {
+  padding-left: 4px;
+}
+
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 16px;
+}
+
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 13px;
+}
+
+.about-pill-icon {
+  color: #16a34a;
+  font-size: 18px;
+}
+
+.about-pill-label {
+  font-weight: 500;
+}
+
+.about-list {
+  padding-left: 18px;
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.link-primary {
+  font-size: 14px;
+  text-decoration: none;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.link-primary:hover {
+  color: #15803d;
+}
+
+/* ================== SERVICES ================== */
+
+.services-grid .service-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.22);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-img-wrap img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.05);
+}
+
+.service-body {
+  padding: 18px 18px 20px;
+}
+
+.service-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.service-title {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.service-text {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* ================== PORTFOLIO ================== */
+
+.portfolio-section {
+  background: #020617;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-outline-light:hover {
+  background: #e5e7eb;
+  color: #020617;
+}
+
+.portfolio-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.portfolio-item {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.portfolio-item:hover .portfolio-img {
+  transform: scale(1.05);
+}
+
+/* ================== TESTIMONIAL ================== */
+
+.testi-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 26px;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+  height: 100%;
+}
+
+.testi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.testi-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.testi-role {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.testi-stars {
+  font-size: 14px;
+  color: #facc15;
+}
+
+.testi-quote {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.testi-text {
+  font-size: 13px;
+  color: #4b5563;
+  margin-top: 16px;
+}
+
+/* ================== WA FLOAT ================== */
 
 .wa-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 54px;
-    height: 54px;
-    background-color: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.7);
+  z-index: 50;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 991.98px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-overlay {
+    padding: 72px 0 80px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .about-main-img,
+  .about-secondary-img {
+    height: 230px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .section {
+    padding: 52px 0;
+  }
+
+  .hero-title {
     font-size: 28px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    z-index: 9999;
-    text-decoration: none;
-}
+  }
 
-.wa-float i {
-    line-height: 1;
-}
+  .hero-text {
+    font-size: 13px;
+  }
 
-.wa-float:hover {
-    background-color: #1ebe57;
-    transform: translateY(-2px);
-    transition: 0.2s ease;
-}
+  .services-grid .service-card .service-img-wrap img {
+    height: 190px;
+  }
 
+  /* DI SINI DIUBAH: tetap 2 kolom di HP, bukan 1 */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-/*********************center_home****************/
-.carousel-caption{
-	background-color: var(--bg_back)!important;
-	bottom:0;
-	left:0;
-	color:var(--bs-white);
-	width:100%;
-	height:100%;
-	padding: 200px 140px 0px 140px;
-	text-align:left;
- }
-.carousel-caption h1{
-   font-size:70px;
- }
-/*********************center_home_end****************/
-
-/*********************about_h****************/
-.about_h1_left_inner_left .rotation{
-  bottom:-50px;
-  left:-50px;
- }
-.about_h1_left_inner_left .image_1{
-  border-radius:100px 0px 100px 0px;
- }
-.about_h1_left_inner_right .circle {
-    border: 12px solid var(--bs-white);
-    width: 250px;
-    height: 250px;
-    bottom: -20%;
-    left: -45%;
+  .testi-card {
+    padding: 20px 18px;
+  }
 }
-.about_h1_left_inner_right .image_2{
-  border-radius:0px 100px 0px 0px;
- }
-/*********************about_h_end****************/
-
-/*********************serv_h****************/
-#serv_h{
-  padding-top:100px;
-  padding-bottom:180px;
- }
-
-/* === [FIX & IMPROVE] SERVICE CARD EQUALIZER & ANIMATION START === */
-
-/* Memaksa row bertindak sebagai Flex container untuk perataan tinggi di desktop */
-.serv_pg .row.serv_ho1, .serv_ho1 { 
-    display: flex;        
-    flex-wrap: wrap;      
-    align-items: stretch; 
-}
-.serv_pg .row.serv_ho1 > .col, .serv_ho1 > .col {
-    display: flex;        
-}
-
-.serv_ho1_left {
-    display: flex;
-    flex-direction: column; 
-    height: 100%;
-    /* Transisi untuk efek hover lift */           
-    transition: all 0.3s ease-in-out; 
-}
-
-.serv_ho1_left:hover {
-    transform: translateY(-5px); /* Card terangkat */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15)!important; /* Shadow lebih dalam */
-}
-
-.serv_ho1_left2 {
-    flex-grow: 1;         
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-}
-
-.serv_ho1_left2 p {
-    min-height: 54px; /* Tinggi minimum untuk deskripsi (agar kartu rata) */
-}
-
-/* Animasi Panah pada "Selengkapnya" */
-.serv_ho1_left2 h5 a i {
-    transition: transform 0.3s ease;
-}
-.serv_ho1_left2 h5 a:hover i {
-    transform: translateX(3px); /* Panah bergerak ke kanan */
-}
-/* =============================================================== */
-
-.serv_ho1_left1 span{
-  width:80px;
-  height:80px;
-  line-height:80px;
-  top:-40px;
-  left:25px;
-  transition: 0.3s;
- }
-.serv_ho1_left:hover .serv_ho1_left1 span{
-  color: var(--bs-white);
-  background: var(--green)!important;
-  transition: 0.3s;
- }
- 
-#serv_ho{
-  bottom:-430px;
- }
-.serv_main{
-  margin-bottom:430px;
- }
- 
-.serv_pg .serv_ho1{
-  margin-top:80px;
- }
- 
-.serv_dt1_right1 ul li a:hover span{
-  background:var(--green)!important;
-  color:var(--bs-white);
- }
-.serv_dt1_right2 span{
-   width:80px;
-   height:80px;
-   line-height:80px;
- }
-/*********************serv_h_end****************/
-
-/*********************port****************/
-/* [IMPROVE] Efek Zoom Gambar Portfolio */
-.port_1_left1_left1 img, .port_1_right img {
-    transition: transform 0.5s ease-in-out;
-}
-.port_1_left1_left:hover .port_1_left1_left1 img, 
-.port_1_right:hover img {
-    transform: scale(1.05); 
-}
-
-.port_1_left1_left2{
-  transition: 0.3s;
-  display:none;
- }
-.port_1_left1_left:hover .port_1_left1_left2{
-   transition: 0.3s;
-   display:block;
- }
-/*********************port_end****************/
-
-/*********************team****************/
- #spec{
-  top:-200px;
- }
-.spec_main{
-  margin-top:250px;
- }
-#team_h{
-  padding-top:160px;
-   padding-bottom:130px;
- }
-.team_h1o{
-   margin-top:80px;
- }
-.team_pg{
-   padding-bottom:90px!important;
- }
- 
-.team_dt1_right_inner .progress-bar {
-    background: var(--bg_light);
-}
-.team_dt1_right_inner .progress {
-    background-color: var(--green);
-    height: 6px;
-    overflow: hidden;
-    border-radius: 0;
-}
-/*********************team_end****************/
-
-
-/*********************testim****************/
-/* [IMPROVE] Efek Hover Testimonial Card */
-.testim_1_left {
-    transition: all 0.3s ease-in-out;
-}
-.testim_1_left:hover {
-    transform: translateY(-5px); /* Card terangkat */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15)!important;
-    border: 1px solid var(--green)!important; /* Tambah garis luar hijau saat hover */
-}
-
-.testim_1_left .quote{
-  width:60px;
-  height:60px;
-  line-height:60px;
- }
-/*********************testim_end****************/
-
-
-@media screen and (max-width : 767px){
-.carousel-caption {
-    position:static!important;
-	padding:15px 15px 50px 15px;
-	background:var(--bs-dark)!important;
-}
-.carousel-caption h1 {
-    font-size: 35px;
-}
-.carousel-caption br {
-    display:none;
-}
-.carousel-caption p {
-    width:100%!important;
-}
-.rotation{
-   display:none;
- }
-.about_h1_left_inner_right .circle {
-    position:static!important;
-	margin-top:20px;
-	margin-left:auto;
-	margin-right:auto;
-}
-.about_h1_right{
-   margin-top:20px;
- }
-.about_h1_right ul li{
-   margin-top:10px;
- }
-#serv_ho {
-  position:static!important;
-}
-#serv_h {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-.serv_ho1_left1 span {
-    top:0;
-}
-#serv_ho{
-    padding-top: 50px;
-    padding-bottom:0;
- }
-.serv_ho1_left{
-   margin-top:10px;
-   margin-bottom:10px;
- }
-.serv_main {
-    margin-bottom:0;
-}
-.port_1_left br{
-   display:none;
- }
-.port_1_right{
-  text-align:left!important;
-  margin-top:20px!important;
- }
-.port_1_left1_left {
-   margin-top:15px;
- }
-#spec {
-  position:static!important;
-}
-.spec_main {
-    margin-top:0;
-}
-.spec_1_left {
-   margin-top:10px;
-   margin-bottom:10px;
- }
-#team_h {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-.testim_1_left {
-  padding:15px!important;
-   margin-top:10px;
-   margin-bottom:10px;
- }
-.faq_1_right {
-    padding-top: 15px!important;
- }
-#faq{
-    padding-top: 50px;
-    padding-bottom: 50px;
- }
-.serv_pg .serv_ho1 {
-    margin-top: 0; 
-}
-.serv_pg{
-  padding-top:50px!important;
- }
-.serv_dt1_left_inner_right{
-  margin-top:20px;
- }
-.serv_dt1_right{
-  margin-top:20px;
- }
-.team_h1o {
-    margin-top: 20px;
-}
-.team_dt1_right{
-  margin-top: 20px;
- }
-.team_dt1_right_inner {
-  padding:30px 15px!important;
-}
- }
-
-
-@media (min-width:576px) and (max-width:767px) {
-
- }
- 
-@media (min-width:768px) and (max-width:991px) {
-.center_home img{
-   min-height:500px;
- }
-.carousel-caption h1 {
-    font-size: 50px;
-}
-.carousel-caption br {
-    display:none;
-}
-.carousel-caption p {
-    width:70%!important;
-}
-.carousel-caption{
-	padding: 90px 90px 0px 90px;
- }
-
-.about_h1_left_inner_right .circle {
-    border: 12px solid var(--bs-white);
-    width: 250px;
-    height: 250px;
-    bottom: -80%;
-    left: -65%;
-}
-.about_h1_right ul li{
-   margin-top:10px;
- }
-#serv_h{
-  padding-top:60px;
-  padding-bottom:120px;
- }
-
-.faq_1_right .font_48{
-   font-size:32px;
- }
-.faq_1_right {
-   padding:0!important;
- }
-.faq_1_right h5{
-   margin-top:0!important;
- }
-#faq{
-    padding-top:40px;
-    padding-bottom:40px;
- }
-.serv_dt1_right1 .fs-5{
-   font-size:16px!important;
- }
-.team_dt1_left .fs-5{
-   font-size:16px!important;
- }
- }
-
-@media (min-width:992px) and (max-width:1200px) {
-.center_home img{
-   min-height:600px;
- }
-.carousel-caption h1 {
-    font-size: 50px;
-}
-.carousel-caption{
-	padding: 120px 120px 0px 120px;
- }
-.about_h1_right ul .p-4{
-  padding:10px!important; 
- }
-.faq_1_right .font_48{
-   font-size:32px;
- }
-.faq_1_right {
-   padding-top:30px!important;
- }
- }
-
-@media (min-width:1201px) and (max-width:1310px) {
-
- }
-@media screen and (min-width : 1400px){
-
-
- }
