@@ -24,13 +24,13 @@
                         <li>
                             <b class="d-block text-white fs-3">Hubungi Kami</b>
                             <span class="d-block mt-3 text-white-50">0857-7107-1415</span>
-                            <span class="d-block mt-3 text-white-50">(021) 1234-5678</span>
+                            <span class="d-block mt-3 text-white-50">0857-7107-1415</span>
                         </li>
 
                         <li>
-                            <b class="d-block text-white fs-3">Alamat</b>
+                            <b class="d-block text-white fs-3">Layanan</b>
                             <span class="d-block mt-3 text-white-50">
-                                Jakarta & Tangerang <br>
+                                Bogor & Tangerang & Depok <br>
                                 Layanan 24 Jam Siap Datang
                             </span>
                         </li>
