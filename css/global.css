@@ -7,6 +7,22 @@ Licence: <a href="https://www.templateonweb.com/license">Website Template Licenc
 */
 
 
+    .small-card {
+        max-width: 0px;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .small-card:hover {
+        transform: scale(1.00);
+    }
+    .serv_ho1_left {
+    max-width: 250px;
+}
+
+
+
+
 .wa-float {
     position: fixed;
     bottom: 20px;
