@@ -10,16 +10,6 @@
                         Kami adalah penyedia layanan sanitasi profesional yang memberikan solusi cepat dan terpercaya.
                     </b>
 
-                    <div class="input-group border_dark">
-                        <input type="text" class="form-control bg-transparent border-0 text-white"
-                            placeholder="Masukkan Email Anda">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary bg_green py-3 px-4 border-0" type="button">
-                                <i class="bi bi-send"></i>
-                            </button>
-                        </span>
-                    </div>
-
                     <ul class="justify-content-between mb-0 mt-4 d-flex">
                         <li>
                             <b class="d-block text-white fs-3">Hubungi Kami</b>

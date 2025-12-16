@@ -24,10 +24,46 @@ if (!$data) {
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
     <link href="css/about.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Text Wrapping Fix for Blog Detail */
+        .blog_dt1 h1 {
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            line-height: 1.3;
+        }
+
+        .content-text {
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            white-space: pre-wrap; /* Preserve line breaks and spaces */
+            line-height: 1.7;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* Sidebar text wrapping */
+        .blog_1_right b {
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+        }
+
+        /* Responsive image */
+        .content-text img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <div id="header-placeholder"></div>
@@ -98,7 +134,6 @@ if (!$data) {
                         <div class="blog_1_right1">
                             <h4 class="line_text mb-4">RECENT POST</h4>
                             <ul class="mb-0">
-                                <ul class="mb-0">
                                     <?php
                                     // Query Khusus Sidebar: Ambil 4 berita terbaru
                                     $query_recent = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 4";
@@ -134,7 +169,6 @@ if (!$data) {
                                         } // Tutup While
                                     } // Tutup If
                                     ?>
-                                </ul>
                             </ul>
                         </div>
                         <div class="blog_1_right1 mt-5">

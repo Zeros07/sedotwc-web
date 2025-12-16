@@ -1,4 +1,14 @@
-<?php include 'koneksi.php'; ?>
+<?php 
+session_start();
+require_once 'config.php';
+include 'koneksi.php'; 
+
+// Set security headers
+setSecurityHeaders();
+
+// Generate CSRF token for admin login
+$csrf_token = generateCSRFToken();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +21,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
     <link href="css/blog.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
@@ -44,6 +54,64 @@
         .blog_h1_left:hover .blog_h1_left1 img {
             transform: scale(1.05);
         }
+
+        /* Pagination Styling */
+        .pagination-wrapper {
+            margin-top: 3rem;
+        }
+
+        .pagination .page-link {
+            color: #28a745;
+            border: 1px solid #dee2e6;
+            padding: 0.75rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .pagination .page-link:hover {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+            transform: translateY(-2px);
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            background-color: #fff;
+            border-color: #dee2e6;
+        }
+
+        /* Text Wrapping Fix */
+        .blog_h1_left2 h1 {
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+        }
+
+        .blog_h1_left2 p {
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            white-space: pre-wrap; /* Preserve line breaks and spaces */
+            line-height: 1.6;
+        }
+
+        /* Sidebar text wrapping */
+        .blog_1_right b {
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+        }
     </style>
 </head>
 
@@ -59,8 +127,8 @@
                     </h6>
                 </div>
                 <div class="col-auto">
-                    <button class="btn button bg_green text-white py-2 px-3 admin-btn-sm" onclick="checkPassword()">
-                        <i class="bi bi-plus-circle me-1"></i> Tambah Artikel
+                    <button class="btn button bg_green text-white py-2 px-3 admin-btn-sm" onclick="checkAdminAccess()">
+                        <i class="bi bi-gear me-1"></i> Kelola Artikel
                     </button>
                 </div>
             </div>
@@ -74,8 +142,19 @@
                     <div class="blog_1_left">
 
                         <?php
-                        // --- KODE PHP LOOPING ARTIKEL ---
-                        $query = "SELECT * FROM posts ORDER BY created_at DESC";
+                        // --- PAGINATION SETUP ---
+                        $articles_per_page = 3; // Maksimal 3 artikel per halaman
+                        $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                        $offset = ($current_page - 1) * $articles_per_page;
+
+                        // Hitung total artikel
+                        $count_query = "SELECT COUNT(*) as total FROM posts";
+                        $count_result = mysqli_query($conn, $count_query);
+                        $total_articles = mysqli_fetch_assoc($count_result)['total'];
+                        $total_pages = ceil($total_articles / $articles_per_page);
+
+                        // Query dengan LIMIT dan OFFSET untuk pagination
+                        $query = "SELECT * FROM posts ORDER BY created_at DESC LIMIT $articles_per_page OFFSET $offset";
                         $result = mysqli_query($conn, $query);
 
                         if (mysqli_num_rows($result) > 0) {
@@ -84,7 +163,10 @@
                                 $judul = htmlspecialchars($row['title']);
                                 $tanggal = date("F d, Y", strtotime($row['created_at']));
                                 $gambar = !empty($row['image']) ? "image/" . $row['image'] : "image/default.jpg";
-                                $cuplikan = substr(strip_tags($row['content']), 0, 200) . "...";
+                                // Bersihkan konten dan buat cuplikan yang lebih baik
+                                $content_clean = strip_tags($row['content']);
+                                $content_clean = preg_replace('/\s+/', ' ', $content_clean); // Normalize whitespace
+                                $cuplikan = (strlen($content_clean) > 200) ? substr($content_clean, 0, 200) . "..." : $content_clean;
                                 $penulis = $row['author'];
                         ?>
 
@@ -110,6 +192,44 @@
 
                                         <h5 class="mb-0 mt-4"><a href="blog_detail.php?id=<?php echo $id; ?>">Read More <i class="bi-arrow-right ms-1 align-middle"></i></a></h5>
                                     </div>
+                                </div>
+                        <?php
+                            }
+
+                            // PAGINATION NAVIGATION
+                            if ($total_pages > 1) {
+                        ?>
+                                <div class="pagination-wrapper mt-5">
+                                    <nav aria-label="Blog pagination">
+                                        <ul class="pagination justify-content-center">
+                                            
+                                            <!-- Previous Button -->
+                                            <?php if ($current_page > 1): ?>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="blog.php?page=<?php echo $current_page - 1; ?>">
+                                                        <i class="bi-chevron-left"></i> Previous
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+
+                                            <!-- Page Numbers -->
+                                            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                                                <li class="page-item <?php echo ($i == $current_page) ? 'active' : ''; ?>">
+                                                    <a class="page-link" href="blog.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                                </li>
+                                            <?php endfor; ?>
+
+                                            <!-- Next Button -->
+                                            <?php if ($current_page < $total_pages): ?>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="blog.php?page=<?php echo $current_page + 1; ?>">
+                                                        Next <i class="bi-chevron-right"></i>
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+
+                                        </ul>
+                                    </nav>
                                 </div>
                         <?php
                             }
@@ -165,7 +285,6 @@
                                 }
                                 ?>
                             </ul>
-                            </ul>
                         </div>
                         <div class="blog_1_right1 mt-5">
                             <h4 class="line_text mb-4">FOLLOW US</h4>
@@ -185,13 +304,29 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/theme.min.js"></script>
     <script>
-        function checkPassword() {
-            const correctPassword = "adminnjr";
-            const enteredPassword = prompt("Masukkan password Admin:");
-            if (enteredPassword === correctPassword) {
-                window.location.href = "add_article.html";
-            } else if (enteredPassword !== null) {
-                alert("Password salah.");
+        function checkAdminAccess() {
+            const enteredPassword = prompt("Masukkan password Admin untuk mengakses CMS:");
+            if (enteredPassword !== null && enteredPassword.trim() !== "") {
+                // Set session dan redirect ke admin dashboard
+                fetch('admin_auth.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'password=' + encodeURIComponent(enteredPassword) + '&csrf_token=' + encodeURIComponent('<?php echo $csrf_token; ?>')
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = "admin_dashboard.php";
+                    } else {
+                        alert(data.message || "Akses ditolak.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Terjadi kesalahan. Silakan coba lagi.");
+                });
             }
         }
 
