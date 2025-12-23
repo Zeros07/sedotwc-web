@@ -96,7 +96,7 @@
                     <b class="fs-3 d-block text-white mb-4">Lokasi Kami</b>
 
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31722.960885785167!2d106.65340557431641!3d-6.346095700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sPamulang%20University%20Campus%202%20(UNPAM%20Viktor)!5e0!3m2!1sen!2sid!4v1765208938046!5m2!1sen!2sid"
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.469872904426!2d106.6760278!3d-6.461999999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnNDMuMiJTIDEwNsKwNDAnMzMuNyJF!5e0!3m2!1sen!2sid!4v1766461808032!5m2!1sen!2sid"
                         width="100%" height="180" style="border-radius:10px; border:0;" allowfullscreen=""
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
@@ -117,13 +117,19 @@
             <div class="col-md-4 text-end">
                 <ul class="mb-0 social_icon1 font_14">
                     <li class="d-inline-block">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.facebook.com/share/1D3whfNxoj/" target="_blank" title="Follow us on Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
                     </li>
                     <li class="d-inline-block ms-2">
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://wa.me/6285771071415" target="_blank" title="Contact us on WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
                     </li>
                     <li class="d-inline-block ms-2">
-                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/njrsanitasi?igsh=OWNtMzJ4YmRieXAx" target="_blank" title="Follow us on Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
                     </li>
                 </ul>
             </div>

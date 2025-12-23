@@ -118,8 +118,16 @@ if (!$data) {
            <div class="blog_dt1_inner_right text-end">
 		     <ul class="mb-0 social_icon1 font_14">
                 <li class="d-inline-block me-2">SHARE :</li>
-                <li class="d-inline-block"><a href="#"><i class="bi bi-facebook"></i></a></li>
-                <li class="d-inline-block ms-1"><a href="#"><i class="bi bi-whatsapp"></i></a></li>
+                <li class="d-inline-block">
+                    <a href="#" onclick="shareToFacebook()" title="Share to Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                </li>
+                <li class="d-inline-block ms-1">
+                    <a href="#" onclick="shareToWhatsApp()" title="Share to WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </li>
 			</ul>
 		   </div>
 		  </div>
@@ -174,9 +182,21 @@ if (!$data) {
                         <div class="blog_1_right1 mt-5">
                             <h4 class="line_text mb-4">FOLLOW US</h4>
                             <ul class="mb-0 social_icon1 font_14">
-                                <li class="d-inline-block"><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                <li class="d-inline-block ms-2"><a href="#"><i class="bi bi-whatsapp"></i></a></li>
-                                <li class="d-inline-block ms-2"><a href="#"><i class="bi bi-instagram"></i></a></li>
+                                <li class="d-inline-block">
+                                    <a href="https://facebook.com/njrmitrasanitasi" target="_blank" title="Follow us on Facebook">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block ms-2">
+                                    <a href="https://wa.me/6285771071415" target="_blank" title="Contact us on WhatsApp">
+                                        <i class="bi bi-whatsapp"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block ms-2">
+                                    <a href="https://instagram.com/njrmitrasanitasi" target="_blank" title="Follow us on Instagram">
+                                        <i class="bi bi-instagram"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -189,6 +209,28 @@ if (!$data) {
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/theme.min.js"></script>
 <script>
+    // Get current page info for sharing
+    const currentUrl = window.location.href;
+    const pageTitle = document.title;
+    const articleTitle = "<?php echo addslashes($data['title']); ?>";
+    const articleContent = "<?php echo addslashes(substr(strip_tags($data['content']), 0, 100)); ?>...";
+    
+    // Facebook Share Function
+    function shareToFacebook() {
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}&quote=${encodeURIComponent(articleTitle + ' - ' + articleContent)}`;
+        window.open(facebookUrl, 'facebook-share', 'width=580,height=400,scrollbars=yes,resizable=yes');
+        return false;
+    }
+    
+    // WhatsApp Share Function
+    function shareToWhatsApp() {
+        const whatsappText = `*${articleTitle}*\n\n${articleContent}\n\nBaca selengkapnya: ${currentUrl}`;
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+        window.open(whatsappUrl, '_blank');
+        return false;
+    }
+    
+    // Load header and footer
     fetch("header.html").then(r => r.text()).then(d => document.getElementById("header-placeholder").innerHTML = d);
     fetch("footer.php").then(r => r.text()).then(d => document.getElementById("footer-placeholder").innerHTML = d);
 </script>

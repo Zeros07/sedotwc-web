@@ -289,9 +289,21 @@ $csrf_token = generateCSRFToken();
                         <div class="blog_1_right1 mt-5">
                             <h4 class="line_text mb-4">FOLLOW US</h4>
                             <ul class="mb-0 social_icon1 font_14">
-                                <li class="d-inline-block"><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                <li class="d-inline-block ms-2"><a href="#"><i class="bi bi-whatsapp"></i></a></li>
-                                <li class="d-inline-block ms-2"><a href="#"><i class="bi bi-instagram"></i></a></li>
+                                <li class="d-inline-block">
+                                    <a href="https://facebook.com/njrmitrasanitasi" target="_blank" title="Follow us on Facebook">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block ms-2">
+                                    <a href="https://wa.me/6285771071415" target="_blank" title="Contact us on WhatsApp">
+                                        <i class="bi bi-whatsapp"></i>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block ms-2">
+                                    <a href="https://instagram.com/njrmitrasanitasi" target="_blank" title="Follow us on Instagram">
+                                        <i class="bi bi-instagram"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
